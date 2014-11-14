@@ -15,19 +15,55 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .state('ph', {
+        url: '',
+        views: {
+          '': {
+            templateUrl: 'views/main.html',
+            controller: 'MainCtrl'
+          }
+        }
       })
-      .otherwise({
-        redirectTo: '/'
+      .state('ph.root', {
+        url: '/',
+        views: {
+          'header@ph': {
+            templateUrl: 'views/header.html',
+          },
+          'main@ph': {
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
+          }
+        }
+      })
+      .state('ph.root.offense', {
+        url: 'offense',
+        views: {
+          'main@ph': {
+            templateUrl: 'views/offense.html',
+            controller: 'OffenseCtrl'
+          }
+        }
+      })
+      .state('ph.root.defense', {
+        url: 'defense',
+        views: {
+          'main@ph': {
+            templateUrl: 'views/defense.html',
+            controller: 'DefenseCtrl'
+          }
+        }
       });
   });

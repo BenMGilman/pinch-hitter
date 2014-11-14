@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="text-center col-sm-12">
+		<h3>Grey Diggers</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<ul class="nav nav-tabs">
+			<li ng-repeat="player in away" ng-class="{active: player == 'Ben Gilman'}">
+				<a href="#/about">{{player}}</a>
+			</li>
+		</ul>	
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12" class="text-center">
+		<canvas id="chart" width="720px" style="border: 1px solid black;"/>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<ul class="nav nav-tabs">
+			<li ng-repeat="player in home">
+				<a href="#/about">{{player}}</a>
+			</li>
+		</ul>	
+	</div>
+</div>
+<div class="row">
+	<div class="text-center col-sm-12">
+		<h3>Blue Blasters</h3>
+	</div>
+</div>
